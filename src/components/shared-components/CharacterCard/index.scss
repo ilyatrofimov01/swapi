@@ -1,0 +1,30 @@
+.character-card {
+    position: relative;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+    .character-card-title {
+      text-align: center;
+      color: #1890ff;
+      margin-bottom: 8px;
+    }
+  
+    .character-card-info {
+      display: grid;
+      gap: 4px;
+      padding: 4px 0;
+    }
+}
+
+.favorite-icon-container {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 20px;
+    cursor: pointer;
+
+    .icon:hover {
+        opacity: 0.5;
+    }
+}
