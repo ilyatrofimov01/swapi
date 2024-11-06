@@ -11,7 +11,7 @@ npm install
 3. Create your own `.env` file inide root folder (you can see `.env.example` [Link to .env.example](https://github.com/ilyatrofimov01/swapi/blob/main/.env.example) inside the project)
 4. After adding env file you can successfully run the project using command below:
    ```
-   nom run dev
+   npm start
    ```
 ## Some comments regarding project AUTH
 
