@@ -5,6 +5,8 @@ import { observer } from "mobx-react-lite";
 import { useStore } from "store/useStore";
 import { Character } from "types/character";
 
+import "./index.scss";
+
 const FavoriteCharactersList = observer(function (): JSX.Element {
     const {favoriteCharactersStore: {favoriteCharactersUrlList}} = useStore();
     const { data, isError, isLoading } = useFetch<Character[]>({ url: favoriteCharactersUrlList });
