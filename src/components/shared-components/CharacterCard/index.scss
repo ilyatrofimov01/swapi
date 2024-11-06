@@ -15,16 +15,11 @@
       gap: 4px;
       padding: 4px 0;
     }
+    .icon-hover {
+      visibility: hidden;
+    }
 }
 
-.favorite-icon-container {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    font-size: 20px;
-    cursor: pointer;
-
-    .icon:hover {
-        opacity: 0.5;
-    }
+.character-card:hover .icon-hover{
+  visibility: visible;
 }

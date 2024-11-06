@@ -36,9 +36,9 @@ export function useFetch<T>({url}: UseFetchProps<T>): UseFetchResponse<T> {
 
         try {
             if (Array.isArray(url)) {
-                return batchFetch(url);
+                return await batchFetch(url);
             } 
-            singleFetch(url);
+            await singleFetch(url);
             
         } catch (error) {
             setIsError(true);
