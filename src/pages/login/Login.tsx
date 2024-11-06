@@ -3,12 +3,12 @@ import { MailOutlined, KeyOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import { useForm, Controller} from "react-hook-form";
 import { LoginFormValues } from "./types";
-import "./index.scss";
 import GoogleAuth from "components/auth/GoogleAuth/GoogleAuth";
 import { Auth } from "services/auth/auth-service";
 import { useNavigate } from "react-router-dom";
 import FacebookAuth from "components/auth/FacebookAuth/FacebookAuth";
 import { ROUTES } from "constants/routes";
+import "./index.scss";
 
 export function Login(): JSX.Element {
     const [isLoginError, setIsLoginError] = useState(false);
@@ -24,11 +24,12 @@ export function Login(): JSX.Element {
         // this method mock default login (with email and password)
         const res = await Auth.defaultLogin(email, password);
        
+        setIsLoading(false);
+
         if (!res.success) {
             return setIsLoginError(true);
         }
         navigate(ROUTES.HOME);
-        setIsLoading(false);
     };
 
     return (

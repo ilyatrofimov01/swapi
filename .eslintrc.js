@@ -329,7 +329,7 @@ const react = {
                 "warn",
                 {
                     selector: "default",
-                    format: ["camelCase"],
+                    format: ["camelCase", "UPPER_CASE"],
                     leadingUnderscore: "allow",
                     trailingUnderscore: "allow",
                 },

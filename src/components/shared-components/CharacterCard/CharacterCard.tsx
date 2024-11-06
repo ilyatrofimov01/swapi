@@ -57,7 +57,7 @@ const CharacterCard = observer(function ({character}: CharacterCardProps): JSX.E
                 <Text><strong>Mass:</strong> {character.mass} kg</Text>
                 <Text><strong>Eye Color:</strong> {character.eye_color}</Text>
             </div>
-            <div className="favorite-icon-container" onClick={(e) => toggleFavorite(e)}>
+            <div className="favorite-icon-container" onClick={toggleFavorite}>
                 {isFavorite
                     ? ( 
                         <HeartFilled className="icon" style={{ color: isFavorite? "red" : "grey" }} />

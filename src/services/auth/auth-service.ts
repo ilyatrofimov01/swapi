@@ -14,7 +14,6 @@ class AuthService {
     // this method mock default login (with email and password)
     public async defaultLogin(email: string, password: string): Promise<{success: boolean}> {
         if (email && password) {
-
             const token = await new Promise((resolve) => {
                 setTimeout(() => {
                     resolve("12345token");
@@ -40,7 +39,6 @@ class AuthService {
     }
     
     public logout(): void {
-
         if (this.loginMethod === "google") {
             googleLogout();
         }

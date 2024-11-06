@@ -23,7 +23,9 @@ export function useFetch<T>({url}: UseFetchProps<T>): UseFetchResponse<T> {
             Promise.resolve(null);
         }));
 
-        const filtered = resBodies.filter(res => res.status === "fulfilled" && res.value !== null).map((el) => (el as PromiseFulfilledResult<keyof T>).value);
+        const filtered = resBodies
+            .filter(res => res.status === "fulfilled" && res.value !== null)
+            .map((el) => (el as PromiseFulfilledResult<keyof T>).value);
 
         setData(filtered as T);
     };

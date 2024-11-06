@@ -3,12 +3,12 @@ import { useEffect } from "react";
 import "./index.scss";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "constants/routes";
+import { FacebookAuthSDK } from "types/facebook-auth";
 
 declare global {
     interface Window {
         fbAsyncInit: () => void;
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        FB: any;
+        FB: FacebookAuthSDK;
     }
 }
 
@@ -44,7 +44,7 @@ function FacebookAuth({onError, onSuccess}: FacebookAuthProps): JSX.Element {
         };
     }, []);
   
-    const handleFacebookLogin = () => {
+    const handleFacebookLogin = (): void => {
         window.FB.login((response: {authResponse: {accessToken: string}}) => {
             if (response.authResponse) {
                 onSuccess(response.authResponse.accessToken);
