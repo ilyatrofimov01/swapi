@@ -7,10 +7,26 @@
     width: 100%;
     box-sizing: border-box;
     border-bottom: 1px solid #e8e8e8;
+
+    .logo-title {
+        margin: 0;
+    }
+
+    @media screen and (max-width: 480px) {
+        flex-wrap: wrap;
+        padding: 16px;
+        .logo-title {
+            width: 100%;
+        }
+    }
 }
 .links {
     display: flex;
     align-items: center;
     gap: 16px;
     justify-items: center;
+
+    @media screen and (max-width: 480px) {
+        gap: 0px;
+    }
 }

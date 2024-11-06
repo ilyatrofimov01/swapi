@@ -4,8 +4,19 @@
     right: 12px;
     font-size: 20px;
     cursor: pointer;
+    z-index: 1000;
 
-    .icon:hover {
+    .icon-hover {
+      visibility: hidden;
+    }
+
+    .heart-icon:hover {
         opacity: 0.5;
     }
+
+    @media screen and (max-width: 480px) {
+      .icon-hover {
+        visibility: visible;
+      }
+  }
 }

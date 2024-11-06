@@ -16,4 +16,8 @@
       text-align: center;
       color: #1890ff;
     }
+
+    @media screen and (max-width: 480px) {
+      padding: 12px;
+  }
 }

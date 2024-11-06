@@ -10,7 +10,7 @@ function Header(): JSX.Element {
 
     return (
         <div className="header-container">
-            <Typography.Title>SWAPI</Typography.Title>
+            <Typography.Title className="logo-title">SWAPI</Typography.Title>
             <div className="links">
                 <Button
                     color="default" variant="link"

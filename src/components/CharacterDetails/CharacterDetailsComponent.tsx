@@ -22,7 +22,7 @@ const CharacterDetailsComponent = observer(function ({ character }: CharacterDet
     
     return (
         <div className="character-details">
-            <Card className="character-card">
+            <Card className="character-card" style={{padding: 0}}>
                 <EditableTitle characterName={characterName} characterUrl={character.url} />
                 <CharacterAttributes character={character} />
                 <Divider />

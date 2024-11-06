@@ -1,14 +1,16 @@
-import { Spin } from "antd";
+import { Input, Spin } from "antd";
 import { useFetch } from "hooks/useFetch/useFetch";
 import { GetCharacterResponse } from "types/character";
 import CharacterCard from "../shared-components/CharacterCard/CharacterCard";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import debounce from "lodash/debounce";
 
 import "./index.scss";
 
 function CharactersList(): JSX.Element {
-    const [url, setUrl] = useState("https://swapi.dev/api/people/");
+    const baseUrl = "https://swapi.dev/api/people/";
+    const [url, setUrl] = useState(baseUrl);
     const [characters, setCharacters] = useState<GetCharacterResponse["results"]>([]);
     const { data, isError, isLoading } = useFetch<GetCharacterResponse>({ url });
     const containerRef = useRef<HTMLDivElement>(null);
@@ -19,21 +21,30 @@ function CharactersList(): JSX.Element {
         }
 
         if (containerRef.current) {
-            console.log(containerRef.current.offsetHeight, window.innerHeight);
-
             if (containerRef.current.offsetHeight < window.innerHeight && data?.next) {
-                console.log("load MORE Effect");
-
                 return loadMore();
             }
         }
     }, [data]);
 
     const loadMore = (): void => {
-
         if (data?.next) {
             setUrl(data.next);
         }
+    };
+
+    const handleSearch = useCallback(debounce((searchText: string) => {
+        setCharacters([]);
+
+        if (!searchText) {
+            return setUrl(baseUrl);
+        }
+        setUrl(`${baseUrl}?search=${searchText}`);
+    }, 600), []);
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+        const { value } = e.target;
+        handleSearch(value.trim());
     };
 
     if (isError) {
@@ -45,6 +56,12 @@ function CharactersList(): JSX.Element {
             spinning={isLoading && characters.length === 0} tip="Loading"
             size="default"
         >
+            <Input.Search
+                enterButton
+                placeholder="Search for characters"
+                style={{ marginBottom: 16 }}
+                onChange={handleInputChange}
+            />
             <div className="infinite-scroll-container" ref={containerRef}>
                 <InfiniteScroll
                     dataLength={characters.length}

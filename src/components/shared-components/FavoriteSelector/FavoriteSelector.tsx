@@ -25,7 +25,7 @@ const FavoriteSelector = observer((function ({characterUrl}: FavoriteSelectorPro
     return (
         <div className="favorite-icon-container" onClick={toggleFavorite}>
             {isFavorite
-                ? <HeartFilled className="icon" style={{ color: isFavorite? "red" : "grey" }} />
+                ? <HeartFilled className="heart-icon" style={{ color: "red" }} />
                 : <HeartOutlined className="icon-hover" style={{ color: "gray" }} />}
         </div>
     );

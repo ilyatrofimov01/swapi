@@ -34,8 +34,8 @@ const EditableTitle = observer(function ({characterUrl, characterName}: Editable
         return (
             <Space.Compact className="edit-container">
                 <Input value={characterNewName} onChange={(e) => setCharacterNewName(e.target.value)} />
-                <Button type="default" onClick={discardNewName}>Discard</Button>
-                <Button type="primary" onClick={saveNewName}>Save New Name</Button>
+                <Button type="default" onClick={discardNewName}>Cancel</Button>
+                <Button type="primary" onClick={saveNewName}>Save</Button>
             </Space.Compact>
         );
     }
